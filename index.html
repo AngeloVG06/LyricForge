@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LyricForge – Generador Automático de Canciones</title>
+    <meta name="description" content="Crea tu canción en segundos con LyricForge. Elige género, emoción y tema; la IA genera letras estructuradas con estrofas, coro, puente y final." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">
+          <div class="brand__logo" aria-hidden="true">🎵</div>
+          <div class="brand__text">
+            <span class="brand__title">LyricForge</span>
+            <span class="brand__subtitle">Generador de Canciones con IA</span>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#home">Inicio</a>
+          <a href="#crear">Crear</a>
+          <a href="#result">Resultado</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container">
+          <h1 class="hero__title">Crea tu canción en segundos</h1>
+          <p class="hero__subtitle">Elige un estilo, una emoción y deja que la inteligencia artificial escriba tu próxima obra musical.</p>
+          <button id="cta-generate" class="btn btn--primary btn--xl">Generar letra ahora</button>
+        </div>
+        <div class="hero__glow" aria-hidden="true"></div>
+      </section>
+
+      <section id="crear" class="generator">
+        <div class="container">
+          <h2 class="section__title">Configura tu canción</h2>
+          <form id="song-form" class="form" autocomplete="off">
+            <div class="form__row">
+              <div class="form__group">
+                <label for="genre">Género</label>
+                <select id="genre" required>
+                  <option value="Pop">Pop</option>
+                  <option value="Rock">Rock</option>
+                  <option value="Rap">Rap</option>
+                  <option value="Reguetón">Reguetón</option>
+                  <option value="Balada">Balada</option>
+                  <option value="Electrónica">Electrónica</option>
+                  <option value="Cristiana">Cristiana</option>
+                  <option value="Indie">Indie</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label for="emotion">Emoción / Estilo</label>
+                <select id="emotion" required>
+                  <option value="Alegre">Alegre</option>
+                  <option value="Oscura">Oscura</option>
+                  <option value="Feliz">Feliz</option>
+                  <option value="Dramática">Dramática</option>
+                  <option value="Romántica">Romántica</option>
+                  <option value="Motivacional">Motivacional</option>
+                  <option value="Triste">Triste</option>
+                  <option value="Épica">Épica</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group form__group--full">
+                <label for="theme">Tema principal de la canción (opcional)</label>
+                <input id="theme" type="text" placeholder="amor, esperanza, fiesta, superación..." />
+              </div>
+            </div>
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit">Generar letra</button>
+              <button class="btn btn--ghost" type="button" id="btn-regenerate" disabled>Regenerar letra</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="result" class="result">
+        <div class="container">
+          <h2 class="section__title">Tu letra generada</h2>
+          <div id="output" class="output" aria-live="polite" aria-busy="false">
+            <div class="placeholder">
+              <p>Completa el formulario y presiona “Generar letra”.</p>
+            </div>
+          </div>
+          <div class="toolbar">
+            <button id="btn-copy" class="btn btn--secondary" disabled>Copiar letra</button>
+            <button id="btn-save" class="btn btn--secondary" disabled>Guardar .txt</button>
+            <button id="btn-share" class="btn btn--secondary" disabled>Compartir</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> LyricForge</span>
+        <div class="footer__links">
+          <a href="#crear">Crear</a>
+          <a href="#result">Resultado</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/app.js" defer></script>
+  </body>
+  </html>
+
