@@ -9,10 +9,11 @@ const state = {
   lastLyricText: '',
 };
 
+const hasDOM = typeof document !== 'undefined' && typeof window !== 'undefined';
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-document.addEventListener('DOMContentLoaded', () => {
+if (hasDOM) document.addEventListener('DOMContentLoaded', () => {
   const form = $('#song-form');
   const genreSel = $('#genre');
   const emotionSel = $('#emotion');
@@ -304,4 +305,9 @@ function line(text) { return capitalizeFirst(text.trim()); }
 function capitalize(text) { return text.charAt(0).toUpperCase() + text.slice(1); }
 function capitalizeFirst(text) { return text.replace(/(^|[\.!?]\s+)([a-zñáéíóú])/g, (m, p, c) => p + c.toUpperCase()); }
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]; }
+
+// Export para entorno Node (previsualización/CLI)
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { generateLyric, lyricToText };
+}
 
